@@ -203,10 +203,10 @@ class Application:
 
         self.result_area.insert(END, model.LOG)
 
-        fig1, ax1 = plt.subplots(2, 2, figsize=(10, 6))
+        fig1, ax1 = plt.subplots(3, 2, figsize=(10, 10))
         fig1.suptitle("Порівняння значень вибірки і апроксимованих")
 
-        fig2, ax2 = plt.subplots(2, 2, figsize=(10, 6))
+        fig2, ax2 = plt.subplots(3, 2, figsize=(10, 10))
         fig2.suptitle("Порівняння значень оригінальної вибірки і відновлених апроксимованих")
         for i in range(model.Y_dim):
             ax1[i // 2, i % 2].plot(model.Y_normed_array[:, i], label=f"Y_{i + 1}")
