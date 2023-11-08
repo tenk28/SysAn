@@ -1,4 +1,5 @@
 import enum
+
 import numpy as np
 from scipy.sparse.linalg import cg
 
@@ -25,11 +26,11 @@ def chebyshev_bias_value(x, n):
     elif n == 1:
         return 2 * x - 1
     elif n == 2:
-        return 8 * x ** 2 - 8 * x + 1
+        return 8 * x**2 - 8 * x + 1
     elif n == 3:
-        return 32 * x ** 3 - 48 * x ** 2 + 18 * x - 1
+        return 32 * x**3 - 48 * x**2 + 18 * x - 1
     elif n == 4:
-        return 128 * x ** 4 - 256 * x ** 3 + 160 * x ** 2 - 32 * x + 1
+        return 128 * x**4 - 256 * x**3 + 160 * x**2 - 32 * x + 1
 
 
 def chebyshev_bias_polynomial(n):
@@ -51,11 +52,11 @@ def legandre_value(x, n):
     elif n == 1:
         return 2 * x - 1
     elif n == 2:
-        return -6 * x ** 2 + 6 * x - 1
+        return -6 * x**2 + 6 * x - 1
     elif n == 3:
-        return 20 * x ** 3 - 30 * x ** 2 + 12 * x - 1
+        return 20 * x**3 - 30 * x**2 + 12 * x - 1
     elif n == 4:
-        return -70 * x ** 4 + 140 * x ** 3 - 90 * x ** 2 + 20 * x - 1
+        return -70 * x**4 + 140 * x**3 - 90 * x**2 + 20 * x - 1
 
 
 def legandre_polynomial(n):
@@ -77,11 +78,11 @@ def lagerr_value(x, n):
     elif n == 1:
         return -x + 1
     elif n == 2:
-        return x ** 2 - 4 * x + 2
+        return x**2 - 4 * x + 2
     elif n == 3:
-        return -x ** 3 + 9 * x ** 2 - 18 * x + 6
+        return -(x**3) + 9 * x**2 - 18 * x + 6
     elif n == 4:
-        return x ** 4 - 16 * x ** 3 + 72 * x ** 2 - 96 * x + 24
+        return x**4 - 16 * x**3 + 72 * x**2 - 96 * x + 24
 
 
 def lagerr_polynomial(n):
@@ -104,7 +105,7 @@ def functional(A, x, b):
 def functional_grad(A, x, b):
     ind = np.argmax(np.abs(A @ x - b))
     max_val = (A @ x - b)[ind]
-    return (A[ind] if max_val >= 0 else - A[ind]).reshape(-1, 1)
+    return (A[ind] if max_val >= 0 else -A[ind]).reshape(-1, 1)
 
 
 def gradient(plug, A, b, max_iteration=100_000, eps=1e-6):
@@ -133,4 +134,3 @@ def adagrad(plug, A, b, max_iteration=100_000, eps=1e-6):
 def conjugate_gradient_method(plug, A, b, eps=1e-6):
     # return np.linalg.lstsq(A, b)[0]
     return np.matrix(cg(A.T @ A, A.T @ b, tol=eps)[0]).reshape(-1, 1)
-
