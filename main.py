@@ -314,6 +314,13 @@ class Application:
         F4_spinbox = Entry(errors_label_frame, textvariable=f4)
         F4_spinbox.grid(row=3, column=1, sticky="WE", padx=5, pady=2)
 
+        F4 = Label(errors_label_frame, text="Ф5:")
+        F4.grid(row=4, column=0, sticky="E")
+        f4 = StringVar()
+        f4.set(str(model.residuals[4]))
+        F4_spinbox = Entry(errors_label_frame, textvariable=f4)
+        F4_spinbox.grid(row=4, column=1, sticky="WE", padx=5, pady=2)
+
 
 application = Application(window)
 
