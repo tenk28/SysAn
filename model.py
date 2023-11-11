@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
 
-from additional import (
+from tools import (
     Lambda,
     Polynom,
     Weight,
