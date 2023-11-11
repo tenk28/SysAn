@@ -13,9 +13,10 @@ plt.style.use("fivethirtyeight")
 
 window = Tk()
 window.title("Бригада № 6")
-window.resizable(False, False)
+window.resizable(True, True)
 window.geometry("900x800")
 window.configure(bg="#FECDA6")
+window.attributes('-zoomed', True)
 FOREGROUND = "#ECE3CE"
 
 
@@ -191,7 +192,7 @@ class Application:
         self.triple_set_radiobutton.grid(row=1, sticky="W")
 
         # 'Результати'
-        self.result_area = ScrolledText(self.results_label_frame, height=70)
+        self.result_area = ScrolledText(self.results_label_frame, height=44)
         self.result_area.grid(row=0, column=0, sticky="WENS")
 
         self.calculate_button = Button(
