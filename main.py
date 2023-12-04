@@ -2,6 +2,8 @@ from tkinter import *
 from tkinter import Button, Entry, Label, LabelFrame, Radiobutton, Spinbox, StringVar, Tk, Toplevel, filedialog
 from tkinter.scrolledtext import ScrolledText
 
+import platform
+
 import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
@@ -16,7 +18,10 @@ window.title("Бригада № 6")
 window.resizable(True, True)
 window.geometry("900x800")
 window.configure(bg="#FECDA6")
-window.attributes('-zoomed', True)
+if (platform.system() != 'Darwin'):
+    window.attributes('-zoomed', True)
+else:
+    window.attributes('-fullscreen', True)
 FOREGROUND = "#ECE3CE"
 
 
