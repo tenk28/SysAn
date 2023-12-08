@@ -11,7 +11,7 @@ from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 from model import Lambda, Model, Polynom, Weight
 
 np.set_printoptions(linewidth=np.inf)
-plt.style.use("fivethirtyeight")
+plt.style.use("classic")
 
 window = Tk()
 window.title("Бригада № 6")
