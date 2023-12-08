@@ -18,9 +18,9 @@ window.title("Бригада № 6")
 window.resizable(True, True)
 window.geometry("900x800")
 window.configure(bg="#FECDA6")
-if (platform.system() != 'Darwin'):
+if (platform.system() == 'Linux'):
     window.attributes('-zoomed', True)
-else:
+elif (platform.system() == 'Darwin'):
     window.attributes('-fullscreen', True)
 FOREGROUND = "#ECE3CE"
 
