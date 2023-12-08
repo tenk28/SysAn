@@ -16,7 +16,7 @@ plt.style.use("fivethirtyeight")
 window = Tk()
 window.title("Бригада № 6")
 window.resizable(True, True)
-window.geometry("900x800")
+window.geometry("1000x800")
 window.configure(bg="#FECDA6")
 if (platform.system() == 'Linux'):
     window.attributes('-zoomed', True)
